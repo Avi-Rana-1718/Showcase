@@ -62,7 +62,6 @@ box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0p
 footer {
     padding: 8px;
 font-family: 'Poppins', sans-serif;
-color:#808080;
 }
 #link1 {
     color:black;
@@ -80,7 +79,7 @@ text-decoration: none;
     </div>
 </div>
 <footer>
-    @Showcase
+    <span id="brand">@Showcase</span>
 </footer>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
@@ -92,7 +91,7 @@ document.getElementById("link1").href = params.get("link");
 document.getElementById("link1").innerHTML = params.get("btn");
 
 document.getElementById("title").style.color = "#" + params.get("color");
-document.footer.style.color = "#" + params.get("color");
+document.getElementById("brand").style.color = "#" + params.get("color");
 document.body.style.backgroundColor= "#" + params.get("bgcolor");
 
 
