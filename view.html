@@ -67,7 +67,7 @@ footer {
     padding: 8px;
 font-family: 'Poppins', sans-serif;
 }
-#link1 {
+#link1, #link2 {
     color:black;
 text-decoration: none;
 }
@@ -86,7 +86,8 @@ display: block;
         <img id="pp" class="banner" src="image.png">
 
 <p id="desc"></p>
-<button class="blink" role="button"><a id="link1" href="#">Website</a></button>
+<button class="blink"><a id="link1" href="#">Website</a></button>
+<button id="btn2" class="blink"><a id="link2" href="#"></a></button>
     </div>
 </div>
 <footer>
@@ -105,7 +106,13 @@ document.getElementById("title").style.color = "#" + params.get("color");
 document.getElementById("brand").style.color = "#" + params.get("color");
 document.body.style.backgroundColor= "#" + params.get("bgcolor");
 
+if (params.get("id") == "1") {
+    document.getElementById("btn2").style.display = "none";
+} else if (params.get("id") == "2") {
 
+    document.getElementById("link2").innerHTML = params.get("btn2");
+    document.getElementById("link2").href = params.get("link2");
+}
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl)
