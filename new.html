@@ -13,7 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3a3c813962.js" crossorigin="anonymous"></script>
-    </head>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+</head>
     <style>
     body {
         padding:0px;
@@ -41,6 +42,11 @@ color:#808080;
 footer a:hover {
     background-color: c4c4c4;
 }
+@media only screen and (max-width: 600px) {
+ #first {
+display: none;
+   }
+}
     </style>
     <body>
         <nav class="navbar navbar-dark">
@@ -51,7 +57,7 @@ footer a:hover {
         <div id="exp">
             <div class="container">
   <div class="row">
-    <div class="col">
+    <div id="first" class="col">
 
 <!--COL END-->
 </div>
@@ -72,14 +78,14 @@ footer a:hover {
 <!--TEXT COLOR-->
 <br>
 <div class="input-group mb-3">
-<span class="input-group-text" id="texthex">#</span>
-<input type="text" class="form-control" placeholder="Text color (Title)" aria-label="Text color (Title)" aria-describedby="basic-addon1">
+<span class="input-group-text">#</span>
+<input type="text" id="texthex" class="form-control" placeholder="Text color (Title)" aria-label="Text color (Title)" aria-describedby="basic-addon1">
 </div>
 <!--/TEXT COLOR-->
 <!--BG COLOR-->
 <div class="input-group mb-3">
-<span class="input-group-text" id="bghex">#</span>
-<input type="text" class="form-control" placeholder="Background color (Main background)" aria-label="Text color (Title)" aria-describedby="basic-addon1">
+<span class="input-group-text">#</span>
+<input type="text" id="bghex" class="form-control" placeholder="Background color (Main background)" aria-label="Text color (Title)" aria-describedby="basic-addon1">
 </div>
 <!--/BG COLOR-->
 <!--IMAGE LINK-->
@@ -124,19 +130,28 @@ footer a:hover {
 </div>
 </div>
 </div>
-<button type="button" onclick="gen()" class="btn btn-dark">Generate</button>
+<button type="button" onclick="gen()" class="btn btn-dark">Generate</button><br><br>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="URL" aria-label="Generated URL" aria-describedby="button-addon2" id="url">
+  <button class="btn btn-secondary" type="button" id="button-addon2" data-clipboard-target="#url">Copy</button>
+</div>
 <!--COL END-->
     </div>
     </div>
     </div>
 
 </div>
+
+
 <script>
 function gen() {
-    var url = "https://avi-rana-1718.github.io/Showcase/view?title=" + document.getElementByID("title").innerHTML + "&desc=";
-    console.log(url);
+    var url = "https://avi-rana-1718.github.io/Showcase/view?id=" + document.getElementById("id").value + "&title=" + document.getElementById("title").value + "&desc=" + document.getElementById("desc").value + "&img=" + document.getElementById("banner").value + "&color=" + document.getElementById("texthex").value + "&bgcolor=" + document.getElementById("bghex").value + "&btn=" + document.getElementById("btn1").value + "&link1=" + document.getElementById("btn1link").value + "&btn2=" + document.getElementById("btn2").value + "&link2=" + document.getElementById("btn2link").value;
+document.getElementById("url").style.display = "block";
+document.getElementById("url").value = url;
 }
+new ClipboardJS('.btn');
 </script>
+<br><br><br><br>
 <footer>
     @Avi Rana
 <br>
